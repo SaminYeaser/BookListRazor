@@ -13,9 +13,37 @@
 
     <div class="col-12 border p-3 mt-3">
         <form action="" method="post">
-            @if (Model.books.Count() > 3)
+            @if (Model.books.Count() > 0)
             {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="books.FirstOrDefault().Name">
 
+                            </label>
+                        </th>
+                        <th>
+                            
+                            <label asp-for="books.FirstOrDefault().AuthorName">
+                                
+                            </label>
+                        </th>
+                    </tr>
+                    @foreach(var item in Model.books)
+                    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.AuthorName)
+                    </td>
+                    <td>
+                       
+                    </td>
+                </tr> 
+                    }
+                </table>
             }
             else
             {
