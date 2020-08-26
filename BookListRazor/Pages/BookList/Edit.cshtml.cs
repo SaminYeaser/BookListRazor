@@ -16,8 +16,12 @@ namespace BookListRazor.Pages.BookList
         {
             _db = db;
         }
-        public void OnGet(int id)
+        [BindProperty]
+
+        public book book { get; set; }
+        public async Task OnGet(int id)
         {
+            book = await _db.book.FindAsync(id);
         }
     }
 }
